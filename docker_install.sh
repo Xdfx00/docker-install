@@ -55,8 +55,8 @@ centos_almalinux_rockylinux_rhel() {
 }
 
 archlinux() {
-  sudo pacman -Syy docker
-  sudo pacman -Syy docker-compose
+  sudo pacman -Syy --noconfirm docker
+  sudo pacman -Syy --noconfirm docker-compose
 
   sudo systemctl enable --now docker
 }
