@@ -29,7 +29,7 @@ echo \
 
 }
 
-debain_installation() {
+debian_installation() {
   # Add Docker's official GPG key:
 sudo apt-get update -y
 sudo apt-get install ca-certificates curl
@@ -67,7 +67,7 @@ if [[ $ID == "ubuntu" ]]; then
   ubuntu_installation
 elif [[ "$ID" == "almalinux" || "$ID" == "rocky" || "$ID" == "centos" || "$ID" == "fedora" ]]; then
   centos_almalinux_rockylinux_rhel
-elif [[ "$ID" == "debain" ]]; then
+elif [[ "$ID" == "debian" ]]; then
   debain_installation
 elif [[ "$ID" == "arch" ]]; then
   archlinux 
