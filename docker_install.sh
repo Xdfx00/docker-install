@@ -69,6 +69,8 @@ elif [[ "$ID" == "almalinux" || "$ID" == "rocky" || "$ID" == "centos" || "$ID" =
   centos_almalinux_rockylinux_rhel
 elif [[ "$ID" == "debain" ]]; then
   debain_installation
+elif [[ "$ID" == "arch" ]]; then
+  archlinux 
 else
   echo -e "${RED}[ERROR] Unsupported OS. This script supports only Ubuntu, Debain, AlmaLinux, Rockylinux, Centos stream.${NC}"
   exit 1
