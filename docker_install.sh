@@ -68,7 +68,7 @@ if [[ $ID == "ubuntu" ]]; then
 elif [[ "$ID" == "almalinux" || "$ID" == "rocky" || "$ID" == "centos" || "$ID" == "fedora" ]]; then
   centos_almalinux_rockylinux_rhel
 elif [[ "$ID" == "debian" ]]; then
-  debain_installation
+  debian_installation
 elif [[ "$ID" == "arch" ]]; then
   archlinux 
 else
