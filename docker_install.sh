@@ -46,9 +46,25 @@ echo \
   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 }
 
-centos_almalinux_rockylinux_rhel() {
+rhel() {
   sudo dnf -y install dnf-plugins-core
-  sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/$ID/docker-ce.repo
+  sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+
+  sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+  sudo systemctl enable --now docker
+}
+
+Centos() {
+  sudo dnf -y install dnf-plugins-core
+  sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+  sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+  sudo systemctl enable --now docker
+}
+
+Fedora() {
+  sudo dnf -y install dnf-plugins-core
+  sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
   sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
   sudo systemctl enable --now docker
@@ -65,8 +81,12 @@ archlinux() {
 
 if [[ $ID == "ubuntu" ]]; then
   ubuntu_installation
-elif [[ "$ID" == "almalinux" || "$ID" == "rocky" || "$ID" == "centos" || "$ID" == "fedora" ]]; then
-  centos_almalinux_rockylinux_rhel
+elif [[ "$ID" == "almalinux" || "$ID" == "rocky" || "$ID" == "centos" ]]; then
+  Centos
+elif [[ "$ID" == "rhel" ]]; then
+  rhel
+elif [[ "$ID" == "fedora" ]]; then
+  Fedora
 elif [[ "$ID" == "debian" ]]; then
   debian_installation
 elif [[ "$ID" == "arch" ]]; then
